@@ -1,25 +1,29 @@
 import { Extractor } from './extractor';
 
 class Engine {
-    let rawTransactions;
-    let extractedTransactions;
-    let parameters;
-    let extractors = [];
+    rawTransactions;
+    extractedTransactions;
+    parameters;
+    extractors = [];
 
     run() {
-        let allResults;
+        let allResults=[];
         this.rawTransactions.forEach(row =>
-            let results;
             if(extractor.applies(row)) {
-               result = extractor.transform(parameters, row);
+               let result = extractor.transform(parameters, row);
                allResults.push(result);
-            }
-        )
+            });
         console.log(result);
     }
+
+
+    addExtractor(extractor) {
+      this.extractors.push(extractor);
+    }
+
 }
 
-export class Engine;
+export default Engine;
 
 class MonthlyExtractor extends Extractor (
     constructor() {

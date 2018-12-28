@@ -5,6 +5,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
+    "moment-recur": "^1.0.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.2"
