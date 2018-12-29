@@ -1,4 +1,4 @@
-import { Extractor } from './extractor';
+import { Extractor } from './extractors';
 
 class Engine {
     rawTransactions;
@@ -20,8 +20,13 @@ class Engine {
 
         console.log(this.extractedTransactions);
     }
+
     addExtractor(extractor) {
       this.extractors.push(extractor);
+    }
+
+    removeExtractor(extractor) {
+      this.extractors = this.extractors.filter(e=>e!=extractor);
     }
 
 }
