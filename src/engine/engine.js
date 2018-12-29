@@ -1,19 +1,23 @@
-import { Extractor } from './extractors';
+import createExractor from "./extractors";
 
-class Engine {
+export default class Engine {
     rawTransactions;
     extractedTransactions=[];
     parameters = undefined;
     extractors = [];
 
-    run() {
+    constructor(rawTransactions) {
+      this.rawTransactions = rawTransactions;
+    }
+
+    run(startDate) {
         this.rawTransactions.forEach(row => {
           let result = [];
           console.log("=> Processing row:"+row);
           this.extractors.forEach(extractor => {
             console.log("==> Applying extractor:"+extractor);
             if(extractor.applies(row)) {
-              result = extractor.transform(parameters, row, this.rawTransactions, allResults);
+              result = extractor.transform(this.parameters, row, startDate, this.rawTransactions, this.allResults);
               result.forEach(row=>this.extractedTransactions.push(row));
             }});
           })
@@ -28,7 +32,4 @@ class Engine {
     removeExtractor(extractor) {
       this.extractors = this.extractors.filter(e=>e!=extractor);
     }
-
 }
-
-export default Engine;

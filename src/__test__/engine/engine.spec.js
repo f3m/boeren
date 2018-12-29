@@ -1,6 +1,6 @@
 import Engine from '../../engine/engine';
 
-describe('the Engine class', () => {
+describe('the DefaultEngine class', () => {
 
   it('adds an extractor', () => {
     const this_engine = new Engine();
