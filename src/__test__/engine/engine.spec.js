@@ -1,5 +1,5 @@
 import Engine from "../../engine/engine";
-import exampleTransactions from "./example-extractors";
+import exampleTransactions from "./example-transactions";
 
 describe("the DefaultEngine class", () => {
   it("adds an extractor", () => {
