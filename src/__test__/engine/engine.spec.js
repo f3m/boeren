@@ -1,4 +1,4 @@
-require('../../src/engine/engine');
+require('../../engine/engine');
 const expect = require('chai');
 
 describe('the Engine class', () => {
