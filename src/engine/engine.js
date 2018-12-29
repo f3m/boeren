@@ -1,12 +1,12 @@
-import createExtractor from "./extractor";
-
 export default class Engine {
+  engineName;
   rawTransactions;
   extractedTransactions = [];
   parameters = undefined;
   extractors = [];
 
-  constructor(rawTransactions) {
+  constructor(engineName, rawTransactions) {
+    this.engineName = engineName;
     this.rawTransactions = rawTransactions;
   }
 
