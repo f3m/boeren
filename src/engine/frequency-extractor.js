@@ -18,17 +18,17 @@ class DefaultFrequencyExtractor extends Extractor {
   };
 
   //todo override this in the weekl and other extractors or keep it emptz here
-  getFirstPaymentDate = row => {
-    let dayString = row["payment_date"];
+  getFirstPaymentDate = (row, startDate) => {
+    let dayString = row["paymentDate"];
     let day = !dayString ? 1 : Number(dayString.match(/\d+/)[0]);
-    return moment(this.startDate)
+    return moment(startDate)
       .date(day)
       .toDate();
   };
 
   transform(parameters, rawRow, startDate, allRows, transformedRows) {
     let firstPaymentDateStr = JSON.stringify(
-      this.getFirstPaymentDate(rawRow)
+      this.getFirstPaymentDate(rawRow, startDate)
     ).substr(1, 10);
     let firstPaymentDate = new Date(firstPaymentDateStr);
     let finalPaymentStr = rawRow["finalPayment"];
@@ -49,7 +49,7 @@ class DefaultFrequencyExtractor extends Extractor {
   }
 }
 
-export const createFrequencyExtractor = (frequency, startDate) => {
+export const createFrequencyExtractor = frequency => {
   switch (frequency) {
     case "weekly":
       return new DefaultFrequencyExtractor(
@@ -100,7 +100,8 @@ export const createFrequencyExtractor = (frequency, startDate) => {
         frequency,
         1,
         (paymentDate, numberOfRepeats) => {
-          let endDate = moment(startDate).add(365, "days");
+          // todo one-off doesn't currently work, add tests and fix it
+          let endDate = moment(new Date()).add(365, "days");
           if (paymentDate > this.startDate && paymentDate < endDate) {
             return [paymentDate];
           }
