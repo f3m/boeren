@@ -1,0 +1,28 @@
+{
+  "rawTransactions": [
+    {
+      "type": "Payment Type 1",
+      "payee": "Receiver 1",
+      "purpose": "A monthly payable cost",
+      "frequency": "monthly",
+      "payment_date": "5th",
+      "position": null,
+      "description": "a monthly test cost of 500",
+      "amount": "-500",
+      "precision": "actual",
+      "finalPayment": null
+    },
+    {
+      "type": "Payment Type 2",
+      "payee": "Receiver 1",
+      "purpose": "A monthly payable cost",
+      "frequency": "monthly",
+      "payment_date": "17th",
+      "position": null,
+      "description": "a monthly test cost of 700",
+      "amount": "-700",
+      "precision": "actual",
+      "finalPayment": null
+    }
+  ]
+}
