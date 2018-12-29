@@ -1,13 +1,13 @@
-import createExractor from "./extractor";
+import createExtractor from "./extractor";
 import { Engine } from "./engine";
 
 export class DefaultEngine extends Engine {
   constructor(rawTransactions) {
     super(rawTransactions);
-    this.addExtractor(createExractor("monthly"));
-    this.addExtractor(createExractor("weekly"));
-    this.addExtractor(createExractor("quarterly"));
-    this.addExtractor(createExractor("annual"));
-    this.addExtractor(createExractor("one-off"));
+    this.addExtractor(createExtractor("monthly"));
+    this.addExtractor(createExtractor("weekly"));
+    this.addExtractor(createExtractor("quarterly"));
+    this.addExtractor(createExtractor("annual"));
+    this.addExtractor(createExtractor("one-off"));
   }
 }
