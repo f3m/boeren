@@ -3,7 +3,7 @@ import { Extractor } from "../../engine/extractor";
 import { createFrequencyExtractor } from "../../engine/extractor";
 import exampleTransactions from "./example-extractors";
 
-describe("the MonthlyExtractor class", () => {
+describe("the Extractor class", () => {
   let engine = new Engine(exampleTransactions.monthly);
   let monthlyExtractor = createFrequencyExtractor("monthly", new Date());
   engine.addExtractor(monthlyExtractor);
