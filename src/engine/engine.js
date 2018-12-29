@@ -35,8 +35,4 @@ export default class Engine {
   addExtractor(extractor) {
     this.extractors.push(extractor);
   }
-
-  removeExtractor(extractor) {
-    this.extractors = this.extractors.filter(e => e !== extractor);
-  }
 }

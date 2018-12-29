@@ -51,7 +51,7 @@ class DefaultFrequencyExtractor extends Extractor {
   }
 }
 
-export const createExtractor = (frequency, startDate) => {
+export const createFrequencyExtractor = (frequency, startDate) => {
   switch (frequency) {
     case "weekly":
       return new DefaultFrequencyExtractor(
