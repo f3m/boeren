@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
     "moment-recur": "^1.0.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -13,7 +11,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true NODE_ENV=test jest --detectOpenHandles --forceExit --verbose --coverage --colors",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
