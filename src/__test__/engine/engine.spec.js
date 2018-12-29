@@ -1,5 +1,5 @@
 import Engine from "../../engine/engine";
-import exampleTransactions from "./example-extractors";
+import exampleTransactions from "./example-transactions";
 
 describe("the DefaultEngine class", () => {
   it("adds an extractor", () => {
@@ -16,7 +16,7 @@ describe("the DefaultEngine class", () => {
   });
 
   it("returns an empty array if no extractor is specified", () => {
-    const this_engine = new Engine(exampleTransactions.monthly);
+    const this_engine = new Engine("TestEngine", exampleTransactions.monthly);
     const results = this_engine.run(new Date());
     expect(results).toEqual([]);
   });

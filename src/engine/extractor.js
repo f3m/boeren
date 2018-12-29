@@ -1,6 +1,10 @@
-export class Extractor {
+export default class Extractor {
   criteria = "";
   trigger = "";
+
+  constructor(name) {
+    this.name = name;
+  }
 
   applies = rawRow => {
     return rawRow[this.criteria] === this.trigger;

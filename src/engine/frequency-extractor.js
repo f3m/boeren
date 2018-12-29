@@ -1,4 +1,4 @@
-import { Extractor } from "./extractor";
+import Extractor from "./extractor";
 const moment = require("moment");
 require("moment-recur");
 
@@ -6,8 +6,8 @@ class DefaultFrequencyExtractor extends Extractor {
   criteria = "frequency";
   numberOfRepeats = -1;
 
-  constructor(trigger, numberOfRepeats, getDateSeries) {
-    super();
+  constructor(name, trigger, numberOfRepeats, getDateSeries) {
+    super(name);
     this.trigger = trigger;
     this.numberOfRepeats = numberOfRepeats;
     this.getDateSeries = getDateSeries;
@@ -41,7 +41,7 @@ class DefaultFrequencyExtractor extends Extractor {
         .filter(date => !finalPaymentDate || date.toDate() <= finalPaymentDate)
         .map(date => {
           let newRow = { ...rawRow };
-          newRow["payment_date"] = date;
+          newRow["paymentDate"] = date;
           return newRow;
         });
     }
@@ -53,6 +53,7 @@ export const createFrequencyExtractor = frequency => {
   switch (frequency) {
     case "weekly":
       return new DefaultFrequencyExtractor(
+        "WeeklyExtractor",
         frequency,
         52,
         (paymentDate, numberOf) =>
@@ -64,6 +65,7 @@ export const createFrequencyExtractor = frequency => {
       );
     case "monthly":
       return new DefaultFrequencyExtractor(
+        "MonthlyExtractor",
         frequency,
         12,
         (paymentDate, numberOf) =>
@@ -75,6 +77,7 @@ export const createFrequencyExtractor = frequency => {
       );
     case "quarterly":
       return new DefaultFrequencyExtractor(
+        "QuarterlyExtractor",
         frequency,
         4,
         (paymentDate, numberOf) =>
@@ -86,6 +89,7 @@ export const createFrequencyExtractor = frequency => {
       );
     case "annual":
       return new DefaultFrequencyExtractor(
+        "AnnuallyExtractor",
         frequency,
         1,
         (paymentDate, numberOf) =>
@@ -97,6 +101,7 @@ export const createFrequencyExtractor = frequency => {
       );
     case "one-off":
       return new DefaultFrequencyExtractor(
+        "OneOffExtractor",
         frequency,
         1,
         (paymentDate, numberOfRepeats) => {
@@ -108,5 +113,7 @@ export const createFrequencyExtractor = frequency => {
           return null;
         }
       );
+    default:
+      return null;
   }
 };
