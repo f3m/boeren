@@ -10,7 +10,7 @@
       "description": "a monthly test cost of 500",
       "amount": "-500",
       "precision": "actual",
-      "final_payment": "n/a"
+      "finalPayment": null
     }
   ],
   "weekly": [
@@ -24,7 +24,7 @@
       "description": "a weeky test cost of 100",
       "amount": "-100",
       "precision": "actual",
-      "final_payment": "n/a"
+      "finalPayment": null
     }
   ],
   "quarterly": [
@@ -38,7 +38,7 @@
       "description": "a quarterly test cost of 300",
       "amount": "-300",
       "precision": "actual",
-      "final_payment": "n/a"
+      "finalPayment": null
     }
   ],
   "oneOff": [
@@ -52,21 +52,21 @@
       "description": "a one-off test cost of 5000",
       "amount": "-5000",
       "precision": "actual",
-      "final_payment": "n/a"
+      "finalPayment": null
     }
   ],
   "annual": [
     {
       "type": "Payment Type 5",
       "payee": "Receiver 5",
-      "purpose": "An anual payable cost",
+      "purpose": "An annual payable cost",
       "frequency": "one-off",
       "payment_date": "13.7.",
       "position": null,
       "description": "a one-off test cost of 5000",
       "amount": "-5000",
       "precision": "actual",
-      "final_payment": "n/a"
+      "finalPayment": null
     }
   ]
 }
