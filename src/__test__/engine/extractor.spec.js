@@ -1,7 +1,7 @@
 import Engine from "../../engine/engine";
 import { Extractor } from "../../engine/extractor";
 import { createFrequencyExtractor } from "../../engine/frequency-extractor";
-import exampleTransactions from "./example-extractors";
+import exampleTransactions from "./example-transactions";
 const moment = require("moment");
 
 describe("the Extractor class", () => {
