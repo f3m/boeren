@@ -1,7 +1,7 @@
 import Engine from '../../engine/engine';
 import {createExractor} from "../../engine/extractors";
 
-const example = [
+const exampleMomthly = [
   {
     "type": "Payment Type 1",
     "payee": "Receiver 1",
@@ -13,7 +13,8 @@ const example = [
     "amount": "-500",
     "precision": "actual",
     "final_payment": "n/a"
-  },
+  }];
+const exampleWeekly = [
   {
     "type": "Payment Type 2",
     "payee": "Receiver 2",
@@ -25,7 +26,9 @@ const example = [
     "amount": "-100",
     "precision": "actual",
     "final_payment": "n/a"
-  },
+  }];
+
+const exampleQuartery = [
   {
     "type": "Payment Type 3",
     "payee": "Receiver 3",
@@ -37,19 +40,22 @@ const example = [
     "amount": "-300",
     "precision": "actual",
     "final_payment": "n/a"
-  },
-  {
-    "type": "Payment Type 4",
-    "payee": "Receiver 4",
-    "purpose": "A one-off payable cost",
-    "frequency": "one-off",
-    "payment_date": "11th",
-    "position": null,
-    "description": "a one-off test cost of 5000",
-    "amount": "-5000",
-    "precision": "actual",
-    "final_payment": "n/a"
-  },
+  }];
+
+const exampleOneOff = [{
+  "type": "Payment Type 4",
+  "payee": "Receiver 4",
+  "purpose": "A one-off payable cost",
+  "frequency": "one-off",
+  "payment_date": "11th",
+  "position": null,
+  "description": "a one-off test cost of 5000",
+  "amount": "-5000",
+  "precision": "actual",
+  "final_payment": "n/a"
+}];
+
+const exampleAnual = [
   {
     "type": "Payment Type 5",
     "payee": "Receiver 5",
@@ -65,14 +71,14 @@ const example = [
 ];
 
 
-describe('the MonthlyExractr class', () => {
-  let engine = new Engine(example);
+describe('the MonthlyExtractr class', () => {
+  let engine = new Engine(exampleMomthly);
   let monthlyExtractor = createExractor("monthly", new Date());
   engine.addExtractor(monthlyExtractor);
 
-  it('creates 12 rows out of one monthly row resulting in a total of 16 rows', () => {
+  it('creates 4 rows out of one monthly row resulting in a total of 4 rows', () => {
     let result = engine.run();
-    expect(result.length==16);
+    expect(result.length == 16);
   });
 
 

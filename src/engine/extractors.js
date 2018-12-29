@@ -41,8 +41,8 @@ class DefaultFrequencyExtractor extends Extractor {
   transform(parameters, rawRow, startDate, allRows, transformedRows) {
     let firstPaymentDate = this.getFirstPaymentDate(rawRow);
     let dates = this.getDateSeries(this.paymentDate, this.numberOfRepeats);
-    if (dates != null && dates.length > 0) {
-      return dates.map(date => {
+    if (dates != null) {
+      return dates.next(this.numberOfRepeats).map(date => {
         let newRow = {...rawRow};
         newRow['payment_date'] = date;
         return newRow;

@@ -22,7 +22,8 @@ export default class Engine {
             }});
           })
 
-        console.log(this.extractedTransactions);
+        //console.log(this.extractedTransactions);
+        return this.extractedTransactions;
     }
 
     addExtractor(extractor) {
