@@ -31,7 +31,7 @@ const exampleWeekly = [
   }
 ];
 
-const exampleQuartery = [
+const exampleQuarterly = [
   {
     type: "Payment Type 3",
     payee: "Receiver 3",
@@ -61,7 +61,7 @@ const exampleOneOff = [
   }
 ];
 
-const exampleAnual = [
+const exampleAnnual = [
   {
     type: "Payment Type 5",
     payee: "Receiver 5",
@@ -81,8 +81,8 @@ describe("the MonthlyExtractor class", () => {
   let monthlyExtractor = createExtractor("monthly", new Date());
   engine.addExtractor(monthlyExtractor);
 
-  it("creates 4 rows out of one monthly row resulting in a total of 4 rows", () => {
+  it("returns 12 rows when given one monthly row", () => {
     let result = engine.run();
-    expect(result.length == 16);
+    expect(result.length).toEqual(12);
   });
 });
