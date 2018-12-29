@@ -1,5 +1,5 @@
-import createExractor from "./extractors";
-import {Engine} from "./engine";
+import createExractor from "./extractor";
+import { Engine } from "./engine";
 
 export class DefaultEngine extends Engine {
   constructor(rawTransactions) {
@@ -9,6 +9,5 @@ export class DefaultEngine extends Engine {
     this.addExtractor(createExractor("quarterly"));
     this.addExtractor(createExractor("annual"));
     this.addExtractor(createExractor("one-off"));
-
   }
 }

@@ -1,4 +1,4 @@
-import createExractor from "./extractors";
+import createExtractor from "./extractor";
 
 export default class Engine {
   rawTransactions;
@@ -28,8 +28,7 @@ export default class Engine {
         }
       });
     });
-
-    console.log(this.extractedTransactions);
+    // console.log(this.extractedTransactions);
     return this.extractedTransactions;
   }
 
@@ -38,6 +37,6 @@ export default class Engine {
   }
 
   removeExtractor(extractor) {
-    this.extractors = this.extractors.filter(e => e != extractor);
+    this.extractors = this.extractors.filter(e => e !== extractor);
   }
 }
