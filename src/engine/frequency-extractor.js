@@ -41,7 +41,7 @@ class DefaultFrequencyExtractor extends Extractor {
         .filter(date => !finalPaymentDate || date.toDate() <= finalPaymentDate)
         .map(date => {
           let newRow = { ...rawRow };
-          newRow["payment_date"] = date;
+          newRow["paymentDate"] = date;
           return newRow;
         });
     }
