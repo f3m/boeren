@@ -1,4 +1,5 @@
 import Engine from "../../engine/engine";
+import exampleTransactions from "./example-extractors";
 
 describe("the DefaultEngine class", () => {
   it("adds an extractor", () => {
@@ -20,5 +21,11 @@ describe("the DefaultEngine class", () => {
     this_engine.addExtractor("def");
     this_engine.removeExtractor("abc");
     expect(this_engine.extractors).toEqual(["def"]);
+  });
+
+  it("returns an empty array if no extractor is specified", () => {
+    const this_engine = new Engine(exampleTransactions.monthly);
+    const results = this_engine.run(new Date());
+    expect(results).toEqual([]);
   });
 });
