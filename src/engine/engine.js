@@ -2,21 +2,24 @@ import { Extractor } from './extractor';
 
 class Engine {
     rawTransactions;
-    extractedTransactions;
-    parameters;
+    extractedTransactions=[];
+    parameters = undefined;
     extractors = [];
 
     run() {
-        let allResults=[];
-        this.rawTransactions.forEach(row =>
+        this.rawTransactions.forEach(row => {
+          let result = [];
+          console.log("=> Processing row:"+row);
+          this.extractors.forEach(extractor => {
+            console.log("==> Applying extractor:"+extractor);
             if(extractor.applies(row)) {
-               let result = extractor.transform(parameters, row);
-               allResults.push(result);
-            });
-        console.log(result);
+              result = extractor.transform(parameters, row, this.rawTransactions, allResults);
+              result.forEach(row=>this.extractedTransactions.push(row));
+            }});
+          })
+
+        console.log(this.extractedTransactions);
     }
-
-
     addExtractor(extractor) {
       this.extractors.push(extractor);
     }
@@ -24,14 +27,3 @@ class Engine {
 }
 
 export default Engine;
-
-class MonthlyExtractor extends Extractor (
-    constructor() {
-        this.criteria = 'frequency';
-        this.trigger = 'monthlz';
-        this.transform  = (params, row) => {
-            let result = [];
-
-    }
-}
-)

@@ -1,5 +1,4 @@
-require('../../engine/engine');
-const expect = require('chai');
+import Engine from '../../engine/engine';
 
 describe('the Engine class', () => {
 
